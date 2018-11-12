@@ -9,7 +9,7 @@ class DBHelper {
    */
   static get DATABASE_URL() {
     const port = 80 // Change this to your server port
-    return `http://localhost:${port}/workspace/udacity_nanodegree/nd-restaurant-reviews.git/trunk/data/restaurants.json`;
+    return `http://localhost:${port}/nd-restaurant-reviews.git/trunk/data/restaurants.json`;
   }
 
   /**
