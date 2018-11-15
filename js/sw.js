@@ -7,6 +7,7 @@ self.addEventListener('install', function(event) {
 
     urlsToCatch = [
         '../',
+        '../index.html',
         '../restaurant.html',
         '../css/styles.css',
         '../data/restaurants.json',
@@ -14,7 +15,8 @@ self.addEventListener('install', function(event) {
         '../js/dbhelper.js',
         '../js/registersw.js',
         '../js/main.js',
-        '../js/restaurant_info.js'
+        '../js/restaurant_info.js',
+        '../img/'
     ];
 
      event.waitUntil(
@@ -30,6 +32,22 @@ self.addEventListener('install', function(event) {
 });
 
 
+self.addEventListener('activate', function(event) {
+    event.waitUntil(
+     caches.keys().then(function(cacheNames) {
+       return Promise.all(
+         cacheNames.filter(function(cacheName) {
+           return cacheName.startsWith('reviews-static-') &&
+                  cacheName != staticCacheName;
+         }).map(function(cacheName) {
+           return caches.delete(cacheName);
+         })
+       );
+     })
+   ); 
+});
+
+
 self.addEventListener('fetch', function(event) {
-    console.log(event.request)
+    console.log(event.request);
 });
