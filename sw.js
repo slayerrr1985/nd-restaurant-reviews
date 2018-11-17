@@ -23,7 +23,8 @@ urlsToCatch = [
     './img/7.jpg',
     './img/8.jpg',
     './img/9.jpg',
-    './img/10.jpg'
+    './img/10.jpg',
+    'https://api.tiles.mapbox.com/'
 ];
 
 self.addEventListener('install', function(event) {
@@ -57,7 +58,7 @@ self.addEventListener('activate', function(event) {
 
 
 self.addEventListener('fetch', function(event) {
-    // console.log(event.request);
+     console.log(event.request);
     event.respondWith(
         caches.match(event.request).then(
             function(response){
