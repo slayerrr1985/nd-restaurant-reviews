@@ -12,7 +12,7 @@ body,td,th,p{
 body {
 	background-color: #fdfdfd;
   position:relative;
-  max-width: 1100px;
+  /* max-width: 1100px; */
   margin: 0 auto;
 }
 ul, li {
@@ -352,20 +352,30 @@ nav h1 a {
     text-align: center;
   }
 }
+
+
+
 #reviews-list {
   margin: 0;
   padding: 0;
+  list-style: outside none none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center;  
+  align-content:center;  
+  
 }
 #reviews-list li {
   background-color: #fff;
   border: 2px solid #f3f3f3;
   display: block;
   list-style-type: none;
-  margin: 0 0 30px;
+  margin: 10px;
   overflow: hidden;
   padding: 20px;
   position: relative;
-  width: 100%;
+  flex-grow:1;
+  flex-basis:350px;
 }
 #reviews-list li p {
   margin: 0 0 10px;
